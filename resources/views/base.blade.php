@@ -5,31 +5,32 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Wowdash - Bootstrap 5 Admin Dashboard HTML Template</title>
-  <link rel="icon" type="image/png" href="assets/images/favicon.png" sizes="16x16">
-  <!-- remix icon font css  -->
-  <link rel="stylesheet" href="assets/css/remixicon.css">
-  <!-- BootStrap css -->
-  <link rel="stylesheet" href="assets/css/lib/bootstrap.min.css">
-  <!-- Apex Chart css -->
-  <link rel="stylesheet" href="assets/css/lib/apexcharts.css">
-  <!-- Data Table css -->
-  <link rel="stylesheet" href="assets/css/lib/dataTables.min.css">
-  <!-- Text Editor css -->
-  <link rel="stylesheet" href="assets/css/lib/editor-katex.min.css">
-  <link rel="stylesheet" href="assets/css/lib/editor.atom-one-dark.min.css">
-  <link rel="stylesheet" href="assets/css/lib/editor.quill.snow.css">
-  <!-- Date picker css -->
-  <link rel="stylesheet" href="assets/css/lib/flatpickr.min.css">
-  <!-- Calendar css -->
-  <link rel="stylesheet" href="assets/css/lib/full-calendar.css">
-  <!-- Vector Map css -->
-  <link rel="stylesheet" href="assets/css/lib/jquery-jvectormap-2.0.5.css">
-  <!-- Popup css -->
-  <link rel="stylesheet" href="assets/css/lib/magnific-popup.css">
-  <!-- Slick Slider css -->
-  <link rel="stylesheet" href="assets/css/lib/slick.css">
-  <!-- main css -->
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" type="image/png" href="{{ asset('assets/images/favicon.png') }}" sizes="16x16">
+<!-- remix icon font css  -->
+<link rel="stylesheet" href="{{ asset('assets/css/remixicon.css') }}">
+<!-- BootStrap css -->
+<link rel="stylesheet" href="{{ asset('assets/css/lib/bootstrap.min.css') }}">
+<!-- Apex Chart css -->
+<link rel="stylesheet" href="{{ asset('assets/css/lib/apexcharts.css') }}">
+<!-- Data Table css -->
+<link rel="stylesheet" href="{{ asset('assets/css/lib/dataTables.min.css') }}">
+<!-- Text Editor css -->
+<link rel="stylesheet" href="{{ asset('assets/css/lib/editor-katex.min.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/css/lib/editor.atom-one-dark.min.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/css/lib/editor.quill.snow.css') }}">
+<!-- Date picker css -->
+<link rel="stylesheet" href="{{ asset('assets/css/lib/flatpickr.min.css') }}">
+<!-- Calendar css -->
+<link rel="stylesheet" href="{{ asset('assets/css/lib/full-calendar.css') }}">
+<!-- Vector Map css -->
+<link rel="stylesheet" href="{{ asset('assets/css/lib/jquery-jvectormap-2.0.5.css') }}">
+<!-- Popup css -->
+<link rel="stylesheet" href="{{ asset('assets/css/lib/magnific-popup.css') }}">
+<!-- Slick Slider css -->
+<link rel="stylesheet" href="{{ asset('assets/css/lib/slick.css') }}">
+<!-- main css -->
+<link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+
 </head>
   <body>
 <aside class="sidebar">
@@ -45,30 +46,20 @@
   </div>
   <div class="sidebar-menu-area">
     <ul class="sidebar-menu" id="sidebar-menu">
-      <li class="dropdown">
-        <a href="javascript:void(0)">
+      <li>
+        <a href="{{ route('admin') }}">
           <iconify-icon icon="solar:home-smile-angle-outline" class="menu-icon"></iconify-icon>
           <span>Dashboard</span>
         </a>
-        <ul class="sidebar-submenu">
-          <li>
-            <a href="index.html"><i class="ri-circle-fill circle-icon text-primary-600 w-auto"></i> AI</a>
-          </li>
-          <li>
-            <a href="index-2.html"><i class="ri-circle-fill circle-icon text-warning-main w-auto"></i> CRM</a>
-          </li>
-          <li>
-            <a href="index-3.html"><i class="ri-circle-fill circle-icon text-info-main w-auto"></i> eCommerce</a>
-          </li>
-          <li>
-            <a href="index-4.html"><i class="ri-circle-fill circle-icon text-danger-main w-auto"></i> Cryptocurrency</a>
-          </li>
-          <li>
-            <a href="index-5.html"><i class="ri-circle-fill circle-icon text-success-main w-auto"></i> Investment</a>
-          </li>
-        </ul>
+        
       </li>
       <li class="sidebar-menu-group-title">Application</li>
+      <li>
+         <a href="{{ route('targets') }}">
+          <iconify-icon icon="solar:document-text-outline" class="menu-icon"></iconify-icon>
+          <span>Targets</span> 
+        </a>
+      </li>
       <li>
         <a href="email.html">
           <iconify-icon icon="mage:email" class="menu-icon"></iconify-icon>
@@ -353,28 +344,31 @@
 </main>
   
   <!-- jQuery library js -->
-  <script src="assets/js/lib/jquery-3.7.1.min.js"></script>
-  <!-- Bootstrap js -->
-  <script src="assets/js/lib/bootstrap.bundle.min.js"></script>
-  <!-- Apex Chart js -->
-  <script src="assets/js/lib/apexcharts.min.js"></script>
-  <!-- Data Table js -->
-  <script src="assets/js/lib/dataTables.min.js"></script>
-  <!-- Iconify Font js -->
-  <script src="assets/js/lib/iconify-icon.min.js"></script>
-  <!-- jQuery UI js -->
-  <script src="assets/js/lib/jquery-ui.min.js"></script>
-  <!-- Vector Map js -->
-  <script src="assets/js/lib/jquery-jvectormap-2.0.5.min.js"></script>
-  <script src="assets/js/lib/jquery-jvectormap-world-mill-en.js"></script>
-  <!-- Popup js -->
-  <script src="assets/js/lib/magnifc-popup.min.js"></script>
-  <!-- Slick Slider js -->
-  <script src="assets/js/lib/slick.min.js"></script>
-  <!-- main js -->
-  <script src="assets/js/app.js"></script>
+ <!-- jQuery js -->
+<script src="{{ asset('assets/js/lib/jquery-3.7.1.min.js') }}"></script>
+<!-- Bootstrap js -->
+<script src="{{ asset('assets/js/lib/bootstrap.bundle.min.js') }}"></script>
+<!-- Apex Chart js -->
+<script src="{{ asset('assets/js/lib/apexcharts.min.js') }}"></script>
+<!-- Data Table js -->
+<script src="{{ asset('assets/js/lib/dataTables.min.js') }}"></script>
+<!-- Iconify Font js -->
+<script src="{{ asset('assets/js/lib/iconify-icon.min.js') }}"></script>
+<!-- jQuery UI js -->
+<script src="{{ asset('assets/js/lib/jquery-ui.min.js') }}"></script>
+<!-- Vector Map js -->
+<script src="{{ asset('assets/js/lib/jquery-jvectormap-2.0.5.min.js') }}"></script>
+<script src="{{ asset('assets/js/lib/jquery-jvectormap-world-mill-en.js') }}"></script>
+<!-- Popup js -->
+<script src="{{ asset('assets/js/lib/magnifc-popup.min.js') }}"></script>
+<!-- Slick Slider js -->
+<script src="{{ asset('assets/js/lib/slick.min.js') }}"></script>
+<!-- main js -->
+<script src="{{ asset('assets/js/app.js') }}"></script>
 
-<script src="assets/js/homeOneChart.js"></script>
-
+<script src="{{ asset('assets/js/homeOneChart.js') }}"></script>
+<script>
+  let table = new DataTable('#dataTable');
+</script>
 </body>
 </html>
