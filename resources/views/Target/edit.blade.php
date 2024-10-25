@@ -1,11 +1,9 @@
-@extends('base');
-
-
-
+@extends('base')
 
 @section('content')
 
-  <div class="navbar-header">
+
+<div class="navbar-header">
     <div class="row align-items-center justify-content-between">
     <div class="col-auto">
       <div class="d-flex flex-wrap align-items-center gap-4">
@@ -365,173 +363,126 @@
       </ul>
     </div>
 
-    <div class="row row-cols-xxxl-5 row-cols-lg-3 row-cols-sm-2 row-cols-1 gy-4">
-      <div class="col">
-        <div class="card shadow-none border bg-gradient-start-1 h-100">
-          <div class="card-body p-20">
-            <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
-              <div>
-                <p class="fw-medium text-primary-light mb-1">Total Users</p>
-                <h6 class="mb-0">20,000</h6>
-              </div>
-              <div class="w-50-px h-50-px bg-cyan rounded-circle d-flex justify-content-center align-items-center">
-                <iconify-icon icon="gridicons:multiple-users" class="text-white text-2xl mb-0"></iconify-icon>
-              </div>
-            </div>
-            <p class="fw-medium text-sm text-primary-light mt-12 mb-0">
-              <span class="text-success-main"><iconify-icon icon="bxs:up-arrow" class="text-xs"></iconify-icon> +5000</span> 
-              Last 30 days users
-            </p>
-          </div>
-        </div><!-- card end -->
-      </div>
-      <div class="col">
-        <div class="card shadow-none border bg-gradient-start-2 h-100">
-          <div class="card-body p-20">
-            <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
-              <div>
-                <p class="fw-medium text-primary-light mb-1">Total Subscription</p>
-                <h6 class="mb-0">15,000</h6>
-              </div>
-              <div class="w-50-px h-50-px bg-purple rounded-circle d-flex justify-content-center align-items-center">
-                <iconify-icon icon="fa-solid:award" class="text-white text-2xl mb-0"></iconify-icon>
-              </div>
-            </div>
-            <p class="fw-medium text-sm text-primary-light mt-12 mb-0">
-              <span class="text-danger-main"><iconify-icon icon="bxs:down-arrow" class="text-xs"></iconify-icon> -800</span> 
-              Last 30 days subscription
-            </p>
-          </div>
-        </div><!-- card end -->
-      </div>
-      <div class="col">
-        <div class="card shadow-none border bg-gradient-start-3 h-100">
-          <div class="card-body p-20">
-            <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
-              <div>
-                <p class="fw-medium text-primary-light mb-1">Total Free Users</p>
-                <h6 class="mb-0">5,000</h6>
-              </div>
-              <div class="w-50-px h-50-px bg-info rounded-circle d-flex justify-content-center align-items-center">
-                <iconify-icon icon="fluent:people-20-filled" class="text-white text-2xl mb-0"></iconify-icon>
-              </div>
-            </div>
-            <p class="fw-medium text-sm text-primary-light mt-12 mb-0">
-              <span class="text-success-main"><iconify-icon icon="bxs:up-arrow" class="text-xs"></iconify-icon> +200</span> 
-              Last 30 days users
-            </p>
-          </div>
-        </div><!-- card end -->
-      </div>
-      <div class="col">
-        <div class="card shadow-none border bg-gradient-start-4 h-100">
-          <div class="card-body p-20">
-            <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
-              <div>
-                <p class="fw-medium text-primary-light mb-1">Total Income</p>
-                <h6 class="mb-0">$42,000</h6>
-              </div>
-              <div class="w-50-px h-50-px bg-success-main rounded-circle d-flex justify-content-center align-items-center">
-                <iconify-icon icon="solar:wallet-bold" class="text-white text-2xl mb-0"></iconify-icon>
-              </div>
-            </div>
-            <p class="fw-medium text-sm text-primary-light mt-12 mb-0">
-              <span class="text-success-main"><iconify-icon icon="bxs:up-arrow" class="text-xs"></iconify-icon> +$20,000</span> 
-              Last 30 days income
-            </p>
-          </div>
-        </div><!-- card end -->
-      </div>
-      <div class="col">
-        <div class="card shadow-none border bg-gradient-start-5 h-100">
-          <div class="card-body p-20">
-            <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
-              <div>
-                <p class="fw-medium text-primary-light mb-1">Total Expense</p>
-                <h6 class="mb-0">$30,000</h6>
-              </div>
-              <div class="w-50-px h-50-px bg-red rounded-circle d-flex justify-content-center align-items-center">
-                <iconify-icon icon="fa6-solid:file-invoice-dollar" class="text-white text-2xl mb-0"></iconify-icon>
-              </div>
-            </div>
-            <p class="fw-medium text-sm text-primary-light mt-12 mb-0">
-              <span class="text-success-main"><iconify-icon icon="bxs:up-arrow" class="text-xs"></iconify-icon> +$5,000</span> 
-              Last 30 days expense
-            </p>
-          </div>
-        </div><!-- card end -->
-      </div>
+<div class="col-lg-12">
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title">Edit Target</h5>
+        </div>
+        <div class="card-body">
+            <form action="{{ route('targets.update', $target->id) }}" method="POST" class="row gy-3 needs-validation" novalidate>
+                @csrf
+                @method('PUT')
+
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="url" class="form-label">URL</label>
+                        <div class="icon-field has-validation">
+                            <span class="icon">
+                                <iconify-icon icon="icon-park-outline:link"></iconify-icon>
+                            </span>
+                            <input type="url" name="url" class="form-control" value="{{ $target->url }}" required>
+                            <div class="invalid-feedback">
+                                Please provide a valid URL.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="domain" class="form-label">Domain</label>
+                        <div class="icon-field has-validation">
+                            <span class="icon">
+                                <iconify-icon icon="fa:globe"></iconify-icon>
+                            </span>
+                            <input type="text" name="domain" class="form-control" value="{{ $target->domain }}" required>
+                            <div class="invalid-feedback">
+                                Please provide a domain name.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="ip_address" class="form-label">IP Address</label>
+                        <div class="icon-field has-validation">
+                            <span class="icon">
+                                <iconify-icon icon="ci:ip"></iconify-icon>
+                            </span>
+                            <input type="text" name="ip_address" class="form-control" value="{{ $target->ip_address }}" required>
+                            <div class="invalid-feedback">
+                                Please provide an IP address.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="server_type" class="form-label">Server Type</label>
+                        <div class="icon-field">
+                            <span class="icon">
+                                <iconify-icon icon="icon-park-outline:server"></iconify-icon>
+                            </span>
+                            <input type="text" name="server_type" class="form-control" value="{{ $target->server_type }}">
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="status" class="form-label">Status</label>
+                        <select name="status" class="form-control" required>
+                            <option value="active" {{ $target->status == 'active' ? 'selected' : '' }}>Active</option>
+                            <option value="inactive" {{ $target->status == 'inactive' ? 'selected' : '' }}>Inactive</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <div class="form-check">
+                            <input type="checkbox" name="has_cms" class="form-check-input" value="1" 
+                                {{ $target->technology && $target->technology->has_cms ? 'checked' : '' }}>
+                            <label class="form-check-label">Has CMS</label>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="cms_name" class="form-label">CMS Name</label>
+                        <div class="icon-field">
+                            <span class="icon">
+                                <iconify-icon icon="mdi:package-variant"></iconify-icon>
+                            </span>
+                            <input type="text" name="cms_name" class="form-control" 
+                                value="{{ $target->technology->cms_name ?? '' }}">
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="cms_version" class="form-label">CMS Version</label>
+                        <div class="icon-field">
+                            <span class="icon">
+                                <iconify-icon icon="mdi:package-variant-closed"></iconify-icon>
+                            </span>
+                            <input type="text" name="cms_version" class="form-control" 
+                                value="{{ $target->technology->cms_version ?? '' }}">
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="technologies" class="form-label">Technologies</label>
+                        <div class="icon-field">
+                            <span class="icon">
+                                <iconify-icon icon="mdi:code-tags"></iconify-icon>
+                            </span>
+                            <input type="text" name="technologies" class="form-control" 
+                                value="{{ $target->technology ? implode(', ', $target->technology->technologies ?? []) : '' }}"
+                                placeholder="Enter technologies separated by commas">
+                            <small class="text-muted">Enter technologies separated by commas (e.g., PHP, JavaScript, MySQL)</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-3">
+                    <button type="submit" class="btn btn-primary">Update</button>
+                    <a href="{{ route('targets') }}" class="btn btn-secondary">Cancel</a>
+                </div>
+            </form>
+        </div>
     </div>
-
-    
-    <div class="card basic-data-table mt-20">
-      <div class="card-header">
-        <h5 class="card-title mb-0">All targets</h5>
-      </div>
-      <div class="card-body">
-        <table class="table bordered-table mb-0" id="dataTable" data-page-length='10'>
-          <thead>
-              <tr>
-                  <th scope="col">
-                      <div class="form-check style-check d-flex align-items-center">
-                          <input class="form-check-input" type="checkbox">
-                          <label class="form-check-label">S.L</label>
-                      </div>
-                  </th>
-                  <th scope="col">URL</th>
-                  <th scope="col">Domain</th>
-                  <th scope="col">IP Address</th>
-                  <th scope="col">Server Type</th>
-                  <th scope="col">CMS Type</th>
-                  <th scope="col">Scan Date</th>
-                  <th scope="col">HTTP Status</th>
-                  <th scope="col">Status</th>
-                  <th scope="col">Action</th>
-              </tr>
-          </thead>
-          <tbody>
-              @foreach($targets as $index => $target)
-              <tr>
-                  <td>
-                      <div class="form-check style-check d-flex align-items-center">
-                          <input class="form-check-input" type="checkbox">
-                          <label class="form-check-label">{{ $index + 1 }}</label>
-                      </div>
-                  </td>
-                  <td><a href="javascript:void(0)" class="text-primary-600">{{ $target->getFullUrlAttribute() }}</a></td>
-                  <td>{{ $target->domain }}</td>
-                  <td>{{ $target->ip_address }}</td>
-                  <td>{{ $target->server_type }}</td>
-                  <td>{{ $target->cms_type ?? 'N/A' }}</td> <!-- CMS Type can be optional -->
-                  <td>{{ $target->last_scan_date->format('d M Y') }}</td>
-                  <td>{{ $target->http_status ?? 'Unknown' }}</td>
-                  <td>
-                      @if($target->status == 'active')
-                          <span class="bg-success-focus text-success-main px-24 py-4 rounded-pill fw-medium text-sm">Active</span>
-                      @else
-                          <span class="bg-danger-focus text-danger-main px-24 py-4 rounded-pill fw-medium text-sm">Inactive</span>
-                      @endif
-                  </td>
-                  <td>
-                      <a href="javascript:void(0)" class="w-32-px h-32-px bg-primary-light text-primary-600 rounded-circle d-inline-flex align-items-center justify-content-center">
-                          <iconify-icon icon="iconamoon:eye-light"></iconify-icon>
-                      </a>
-                      <a href="javascript:void(0)" class="w-32-px h-32-px bg-success-focus text-success-main rounded-circle d-inline-flex align-items-center justify-content-center">
-                          <iconify-icon icon="lucide:edit"></iconify-icon>
-                      </a>
-                      <a href="javascript:void(0)" class="w-32-px h-32-px bg-danger-focus text-danger-main rounded-circle d-inline-flex align-items-center justify-content-center">
-                          <iconify-icon icon="mingcute:delete-2-line"></iconify-icon>
-                      </a>
-                  </td>
-              </tr>
-              @endforeach
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-
-  </div>
-
-    
+</div>
 @endsection

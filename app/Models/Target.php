@@ -23,11 +23,8 @@ class Target extends Model
         'description',
         'robots_txt',
         'sitemap_xml',
-        'cms_type',
-        'cms_version',
         'ssl_info',
         'headers',
-        'technologies',
         'redirect_chains',
         'crawl_depth',
         'max_pages_to_crawl',
@@ -53,31 +50,10 @@ class Target extends Model
     ];
 
     // Relationships
-    public function scans()
+    public function technology()
     {
-        return $this->hasMany(Scan::class);
+        return $this->hasOne(WebsiteTechnology::class);
     }
-
-    public function vulnerabilities()
-    {
-        return $this->hasMany(Vulnerability::class);
-    }
-
-    public function performanceMetrics()
-    {
-        return $this->hasMany(PerformanceMetric::class);
-    }
-
-    public function seoIssues()
-    {
-        return $this->hasMany(SeoIssue::class);
-    }
-
-    public function accessibilityIssues()
-    {
-        return $this->hasMany(AccessibilityIssue::class);
-    }
-
     // Scopes
     public function scopeActive($query)
     {
